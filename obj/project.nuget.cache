@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "J2KtXcdyPPvIctZSGj8HKK+ZzyWw0cViAQpPwpK/p4LjsMSTT/2L81J1P7dM64UJrMjaNbWyAOPgWQSVCOlvug==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\drsea\\OneDrive\\Documents\\Visual Studio 2022\\Projects\\Movie Search Tool\\Movie Search Tool.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\drsea\\.nuget\\packages\\system.net.http.json\\6.0.0\\system.net.http.json.6.0.0.nupkg.sha512",
+    "C:\\Users\\drsea\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\drsea\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
+    "C:\\Users\\drsea\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,26 @@
+C:\Users\drsea\OneDrive\Documents\Visual Studio 2022\Projects\Movie Search Tool\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\drsea\OneDrive\Documents\Visual Studio 2022\Projects\Movie Search Tool\bin\Debug\net6.0\appsettings.json
+C:\Users\drsea\OneDrive\Documents\Visual Studio 2022\Projects\Movie Search Tool\bin\Debug\net6.0\Movie Search Tool.staticwebassets.runtime.json
+C:\Users\drsea\OneDrive\Documents\Visual Studio 2022\Projects\Movie Search Tool\bin\Debug\net6.0\Movie Search Tool.exe
+C:\Users\drsea\OneDrive\Documents\Visual Studio 2022\Projects\Movie Search Tool\bin\Debug\net6.0\Movie Search Tool.deps.json
+C:\Users\drsea\OneDrive\Documents\Visual Studio 2022\Projects\Movie Search Tool\bin\Debug\net6.0\Movie Search Tool.runtimeconfig.json
+C:\Users\drsea\OneDrive\Documents\Visual Studio 2022\Projects\Movie Search Tool\bin\Debug\net6.0\Movie Search Tool.dll
+C:\Users\drsea\OneDrive\Documents\Visual Studio 2022\Projects\Movie Search Tool\bin\Debug\net6.0\Movie Search Tool.pdb
+C:\Users\drsea\OneDrive\Documents\Visual Studio 2022\Projects\Movie Search Tool\obj\Debug\net6.0\Movie Search Tool.csproj.AssemblyReference.cache
+C:\Users\drsea\OneDrive\Documents\Visual Studio 2022\Projects\Movie Search Tool\obj\Debug\net6.0\Movie Search Tool.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\drsea\OneDrive\Documents\Visual Studio 2022\Projects\Movie Search Tool\obj\Debug\net6.0\Movie Search Tool.AssemblyInfoInputs.cache
+C:\Users\drsea\OneDrive\Documents\Visual Studio 2022\Projects\Movie Search Tool\obj\Debug\net6.0\Movie Search Tool.AssemblyInfo.cs
+C:\Users\drsea\OneDrive\Documents\Visual Studio 2022\Projects\Movie Search Tool\obj\Debug\net6.0\Movie Search Tool.csproj.CoreCompileInputs.cache
+C:\Users\drsea\OneDrive\Documents\Visual Studio 2022\Projects\Movie Search Tool\obj\Debug\net6.0\Movie Search Tool.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\drsea\OneDrive\Documents\Visual Studio 2022\Projects\Movie Search Tool\obj\Debug\net6.0\Movie Search Tool.RazorAssemblyInfo.cache
+C:\Users\drsea\OneDrive\Documents\Visual Studio 2022\Projects\Movie Search Tool\obj\Debug\net6.0\Movie Search Tool.RazorAssemblyInfo.cs
+C:\Users\drsea\OneDrive\Documents\Visual Studio 2022\Projects\Movie Search Tool\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\drsea\OneDrive\Documents\Visual Studio 2022\Projects\Movie Search Tool\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\drsea\OneDrive\Documents\Visual Studio 2022\Projects\Movie Search Tool\obj\Debug\net6.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\drsea\OneDrive\Documents\Visual Studio 2022\Projects\Movie Search Tool\obj\Debug\net6.0\scopedcss\bundle\Movie Search Tool.styles.css
+C:\Users\drsea\OneDrive\Documents\Visual Studio 2022\Projects\Movie Search Tool\obj\Debug\net6.0\scopedcss\projectbundle\Movie Search Tool.bundle.scp.css
+C:\Users\drsea\OneDrive\Documents\Visual Studio 2022\Projects\Movie Search Tool\obj\Debug\net6.0\Movie Search Tool.dll
+C:\Users\drsea\OneDrive\Documents\Visual Studio 2022\Projects\Movie Search Tool\obj\Debug\net6.0\refint\Movie Search Tool.dll
+C:\Users\drsea\OneDrive\Documents\Visual Studio 2022\Projects\Movie Search Tool\obj\Debug\net6.0\Movie Search Tool.pdb
+C:\Users\drsea\OneDrive\Documents\Visual Studio 2022\Projects\Movie Search Tool\obj\Debug\net6.0\Movie Search Tool.genruntimeconfig.cache
+C:\Users\drsea\OneDrive\Documents\Visual Studio 2022\Projects\Movie Search Tool\obj\Debug\net6.0\ref\Movie Search Tool.dll

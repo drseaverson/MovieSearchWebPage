@@ -1,0 +1,204 @@
+﻿@page
+@using Microsoft.AspNetCore.Components.Web
+@using Movie_Search_Tool.Models
+@using System.Net.Http.Json
+
+@inject IHttpClientFactory _clientFactory
+
+@model IndexModel
+@{
+	ViewData["Title"] = "Movie Search Tool - Find Your Movie";
+	bool evenRow = false; //variable used to track rows to alternate background colors on table
+
+	HttpClient client = new HttpClient();
+
+	async Task searchMovies()
+	{
+		Model.buttonClicked = true;
+		//userInput = null; //receives user input from textbox (currently can't find way to take input properly)
+		Model.loading = "Loading...";
+		System.Diagnostics.Debug.WriteLine("User Input Received: " + Model.userInput.ToString()); //prints user input to console (currently throws error as userInput is null
+
+		var request = new HttpRequestMessage(HttpMethod.Get, 
+			"https://api.themoviedb.org/3/search/movie?api_key=62265a6e5fdc417f4a203063677000d5&query=" + Model.userInput.ToString() + "&include_adult=false"); //initial request from movie API 
+
+		var client = _clientFactory.CreateClient();
+
+		HttpResponseMessage response = await client.SendAsync(request); //waits on response from API pull
+
+		if (response.IsSuccessStatusCode)
+		{
+			System.Diagnostics.Debug.WriteLine("Status Code Success"); //prints to console that response from API was successful
+			Model.movies = await response.Content.ReadFromJsonAsync<MovieDataModel>();
+			System.Diagnostics.Debug.WriteLine("Total Pages Returned from API: " + Model.movies.total_Pages.ToString()); 
+			//prints number of available pages returned from successful API pull
+		}
+		else
+		{
+			Model.error = $"The following error occured while trying to retrieve the movies: { response.ReasonPhrase }";
+		}
+		return;
+	}
+
+	string[] genreNames = { "Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "History", "Horror", "Music", "Mystery", "Romance", "Science Fiction", "TV Movie", "Thriller", "War", "Western" };
+	int[] genreIds = { 28, 12, 16, 35, 80, 99, 18, 10751, 14, 36, 27, 10402, 9648, 10749, 878, 10770, 53, 10752, 37 };
+	/** List of corresponding genres and genre id's
+			Action          28
+			Adventure       12
+			Animation       16
+			Comedy          35
+			Crime           80
+			Documentary     99
+			Drama           18
+			Family          10751
+			Fantasy         14
+			History         36
+			Horror          27
+			Music           10402
+			Mystery         9648
+			Romance         10749
+			Science Fiction 878
+			TV Movie        10770
+			Thriller        53
+			War             10752
+			Western         37
+		 */
+}
+
+<div class="text-center">
+    <h1 class="display-5">Let the Movies Come to You</h1>
+	
+	@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+	{
+		<div>
+			<br>
+			<p>Movie Title:
+				@Html.TextBoxFor(Model => Model.userInput)
+				<!-- user input recieved through model-->
+				<input type="submit" value="Search Movies"/>
+			</p>
+			 
+		</div>
+	}
+	@if (Model.userInput != null)
+	{
+		await searchMovies();
+		@if (string.IsNullOrWhiteSpace(@Model.error) == false) //displays error message if issue retrieving API data
+		{
+			<div class="h2" style="color:red;">@Model.error</div>
+		}
+		else if (Model.movies.total_Pages > 0)
+		{
+			System.Diagnostics.Debug.WriteLine("Reached Table Section");
+			//displays table with proper movie titles from page 1
+			<p></p>
+			<p>
+				<h4 style="text-align:center;">Results</h4>
+			</p>
+			//table has horizontal lines for more fluent reading
+			<table class="pure-table pure-table-horizontal" cellpadding="10" style="border:1px solid black;margin-left:auto;margin-right:auto;"> 
+				<thead class="thead-dark" style="background-color:#000000;color:white;">
+					<tr>
+						<th>Title</th>
+						<th>Release Date</th>
+						<th>Genre</th>
+						<th>Language</th>
+						<th>Rating</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var movie in Model.movies.results)
+					{
+						if (evenRow) //alternates rows in table to have grey background for more efficient reading
+						{
+							<tr style="background-color:#bcbaba;">
+								<td>@movie.title</td>
+								@if (@movie.release_Date != null)
+								{
+									<td>@movie.release_Date</td>
+								}
+								else
+								{
+									<td>N/A</td>
+								}
+								@if (movie.genre_Ids.Length > 0)
+								{
+									var count = 0;
+									@foreach (int numTemp in genreIds)
+									{
+										if (movie.genre_Ids[0] == genreIds[count])
+										{
+											<td>@genreNames[count]</td>
+										}
+										count++;
+									}
+								}
+								else
+								{
+									//prints N/A if movie has no corresponding genre
+									<td>N/A</td>
+								}
+								<td>@movie.original_Language</td>
+								<td>@movie.vote_Average</td>
+							</tr>
+						} else
+						{
+							<tr>
+								<td>@movie.title</td>
+								@if (@movie.release_Date != null)
+								{
+									<td>@movie.release_Date</td>
+								}
+								else
+								{
+									<td>N/A</td>
+								}
+								@if (movie.genre_Ids.Length > 0)
+								{
+									var count = 0;
+									@foreach (int numTemp in genreIds)
+									{
+										if (movie.genre_Ids[0] == genreIds[count])
+										{
+											<td>@genreNames[count]</td>
+										}
+										count++;
+									}
+								}
+								else
+								{
+									//prints N/A if movie has no corresponding genre
+									<td>N/A</td>
+								}
+								<td>@movie.original_Language</td>
+								<td>@movie.vote_Average/10</td>
+							</tr>
+						}
+						evenRow = !evenRow;
+					}
+				</tbody>
+			</table>
+			//end of table section
+			//insert buttons to change pages and list number of total pages (provides user with access to more movies at a tiime with one search)
+			<p style="text-align: right;"> <!-- displays total number of results-->
+				Total Results: @Model.movies.total_results <br>
+				Total Pages: @Model.movies.total_Pages
+			</p>
+		} else
+		{
+			<br />
+			<p>Sorry, there were no movies found under "@Model.userInput" at this time.</p>
+			<p>Please Try Again.</p>
+		}
+	}
+
+	@if (Model.buttonClicked == true)
+	{
+		if (Model.movies == null) //displays "loading..." once button is clicked and waiting on API info returned
+		{
+			<p></p>
+			<div class="h5">Loading...</div>
+		} 
+		
+	}
+</div>
